@@ -47,3 +47,35 @@ export const ZODIAC = [
   "狗",
   "猪",
 ] as const;
+
+/**
+ * 每月地支（按月序）
+ */
+export const MONTHLY_EARTHLY_BRANCHES = [
+  "寅",
+  "卯",
+  "辰",
+  "巳",
+  "午",
+  "未",
+  "申",
+  "酉",
+  "戌",
+  "亥",
+  "子",
+  "丑",
+] as const;
+
+/** 五虎遁速查表，按天干从甲开始 */
+export const FIVE_TIGER = [
+  "丙",
+  "戊",
+  "庚",
+  "壬",
+  "甲",
+  "丙",
+  "戊",
+  "庚",
+  "壬",
+  "甲",
+];

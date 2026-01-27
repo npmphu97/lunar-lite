@@ -67,12 +67,12 @@ describe("calendar/heavenlyStemAndEarthlyBranch", () => {
       expect(
         getHeavenlyStemAndEarthlyBranchByLunarDate(date, timeIndex, isLeap, {
           year: "exact",
-        }).toString(),
+        }).toString()
       ).toBe(result);
       expect(
         getHeavenlyStemAndEarthlyBranchByLunarDate(date, timeIndex, isLeap, {
           year: "normal",
-        }).toString(),
+        }).toString()
       ).toBe(result2 ?? result);
     });
   });
@@ -123,26 +123,72 @@ describe("calendar/heavenlyStemAndEarthlyBranch", () => {
         date: "1983-4-22",
         timeIndex: 0,
         result: "癸亥 丙辰 庚辰 丙子",
-      }, {
+      },
+      {
         date: "1979-8-7",
         timeIndex: 0,
         result: "己未 辛未 丙午 戊子",
-      }, {
+      },
+      {
         date: "1979-8-8",
         timeIndex: 0,
         result: "己未 辛未 丁未 庚子",
-        options: { month: 'exact' as  'exact' | 'normal' },
-      }, {
+        options: { month: "exact" as "exact" | "normal" },
+      },
+      {
         date: "1979-8-8",
         timeIndex: 0,
         result: "己未 壬申 丁未 庚子",
-        options: { month: 'normal' as  'exact' | 'normal' },
-      }
+        options: { month: "normal" as "exact" | "normal" },
+      },
+      {
+        date: "2025-7-7",
+        timeIndex: 0,
+        result: "乙巳 癸未 丁丑 庚子",
+        options: { month: "normal" as "exact" | "normal" },
+      },
+      {
+        date: "2025-12-20",
+        timeIndex: 0,
+        result: "乙巳 戊子 癸亥 壬子",
+        options: { month: "normal" as "exact" | "normal" },
+      },
+      {
+        date: "2026-2-5",
+        timeIndex: 0,
+        result: "丙午 庚寅 庚戌 丙子",
+        options: { 
+          year: "exact" as "exact" | "normal", 
+          month: "exact" as "exact" | "normal",
+        },
+      },
+      {
+        date: "2026-2-5",
+        timeIndex: 0,
+        result: "乙巳 庚寅 庚戌 丙子",
+        options: { 
+          year: "normal" as "exact" | "normal", 
+          month: "exact" as "exact" | "normal",
+        },
+      },
+      {
+        date: "2026-2-5",
+        timeIndex: 0,
+        result: "乙巳 己丑 庚戌 丙子",
+        options: { 
+          year: "normal" as "exact" | "normal", 
+          month: "normal" as "exact" | "normal",
+        },
+      },
     ];
 
     data.forEach(({ date, timeIndex, result, options }) => {
       expect(
-        getHeavenlyStemAndEarthlyBranchBySolarDate(date, timeIndex, options).toString(),
+        getHeavenlyStemAndEarthlyBranchBySolarDate(
+          date,
+          timeIndex,
+          options
+        ).toString()
       ).toBe(result);
     });
   });
